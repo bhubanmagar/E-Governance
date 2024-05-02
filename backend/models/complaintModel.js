@@ -26,4 +26,4 @@ const reportSchema = new mongoose.Schema(
   }
 );
 
-const Report = mongoose.model("report", reportSchema);
+const Complaint = mongoose.model("report", reportSchema);
