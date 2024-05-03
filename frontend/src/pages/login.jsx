@@ -9,19 +9,16 @@ const LoginPage = () => {
   const loginHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/signin", {
+      await axios.post("/signin", {
         email: email,
         password: password,
       });
-      console.log(response);
-      if (response) {
-        const token = response.data.data;
-        localStorage.setItem("accessToken", token);
-        navigate("/admin", { replace: true });
-      }
+      alert("Sucessfull!");
+      localStorage.setItem("authorized", true);
+      navigate("/adminView", { replace: true });
     } catch (error) {
-      alert(error);
-      navigate("/login");
+      alert("Email or Password doesn't match");
+      navigate("/admin");
     }
   };
   return (

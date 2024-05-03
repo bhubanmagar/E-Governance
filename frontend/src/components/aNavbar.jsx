@@ -1,4 +1,7 @@
-const Navbar = () => {
+const ANavbar = () => {
+  const storageHandler = () => {
+    localStorage.removeItem("authorized");
+  };
   return (
     <>
       <div className="mx-auto px-2 sm:px-6 lg:px-8  bg-gray-800">
@@ -24,9 +27,21 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          {localStorage.getItem("authorized") ? (
+            <>
+              <button
+                onClick={storageHandler}
+                className="text-red-200 border p-1 rounded-md"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </>
   );
 };
-export default Navbar;
+export default ANavbar;

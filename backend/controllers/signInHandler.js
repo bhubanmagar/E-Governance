@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const jwt = require("jsonwebtoken");
 const signinHandler = async (req, res) => {
   const User = mongoose.model("user");
   const { email, password } = req.body;
@@ -15,27 +14,14 @@ const signinHandler = async (req, res) => {
     const check = actualPassword === password;
     if (!check) throw "Email or Password doesn't match!";
   } catch (error) {
-    console.log(error);
+    res.status(400).json({
+      message: error,
+    });
+    return;
   }
 
-  //token making using jsonwebtoken
-  const getUserToken = await User.findOne({
-    email: email,
-  });
-
-  console.log(getUserToken);
-  const accessToken = await jwt.sign(
-    {
-      _id: getUserToken._id,
-      email: getUserToken.email,
-      password: getUserToken.password,
-    },
-    process.env.JWT_SALT
-  );
-
   res.status(200).json({
-    message: "sucessfull",
-    data: accessToken,
+    message: "Sucessfully logedIn",
   });
 };
 module.exports = signinHandler;
