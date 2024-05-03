@@ -12,7 +12,7 @@ const complaintRegister = async (req, res) => {
       description: description,
       name: name,
       adress: adress,
-      number: number,
+      phoneNumber: number,
     });
   } catch (error) {
     return res.status(400).json({
