@@ -1,6 +1,10 @@
+import { Link, useNavigate } from "react-router-dom";
+
 const ANavbar = () => {
+  const navigate = useNavigate();
   const storageHandler = () => {
     localStorage.removeItem("authorized");
+    navigate("/admin");
   };
   return (
     <>
@@ -17,12 +21,12 @@ const ANavbar = () => {
               />
               <div className="hidden sm:ml-6 sm:block">
                 <div className="flex space-x-4">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className=" text-white  hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                   >
                     Home
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

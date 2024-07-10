@@ -19,16 +19,16 @@ const AdminPage = () => {
       {check ? (
         <>
           {" "}
-          <div className="p-5 bg-slate-700">
+          <div className="p-5 bg-slate-500">
             {complain.map((e) => {
               return (
                 <>
-                  <div className="mainContainer flex h-[300px] justify-center ">
+                  <div className="mainContainer flex h-[300px] justify-center  ">
                     <div className=" w-1/2 h-screen">
                       <div className="p-2 text-xl font-bold text-left text-yellow-100">
                         {e.tittle}
                         <hr />
-                        <p className="text-gray-500 text-xs p-2 pb-1">
+                        <p className="text-white text-xs p-2 pb-1">
                           <span>
                             Posted By : {e.name}/{e.adress}/{e.phoneNumber}
                           </span>
@@ -37,7 +37,7 @@ const AdminPage = () => {
                           {e.createdAt}
                         </p>
                       </div>
-                      <div className="p-2 text-center text-sm text-white">
+                      <div className="p-2 text-center text-sm text-white text-wrap h-auto ">
                         {e.description}
                       </div>
                       <hr />
